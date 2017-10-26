@@ -1,3 +1,77 @@
+body {
+    margin: 0px;
+}
+
+footer {
+    display: flex;
+    justify-content: space-around;
+    background-color: #999999;
+}
+
+footer a {
+    justify-content: space-between;
+    color: white;
+
+}
+
+#container {
+    min-height:100vh;
+    display:flex; /* 2 */
+    flex-direction:column;
+}
+
+#body {
+    flex-grow:1;
+}
+
+#connexion {
+    width: 40%;
+}
+
+#links {
+    display: flex;
+    justify-content: center;
+}
+
+#links div {
+    width: 40%;
+    display: inline-block;
+    margin: 10px;
+    color: white;
+    text-align: center;
+    padding: 5px;
+    font-family: 'Lato', sans-serif;
+}
+
+#connexion {
+    background-color: #23B786;
+    border-radius: 5px;
+}
+
+#inscription {
+    background-color: #FED234;
+    border-radius: 5px;
+}
+
+#menu {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+#menu div {
+    border: 1px solid #CDCDCD;
+    background-color: #F2F2F2;
+    font-family: 'Lato', sans-serif;
+    color: #29A5BD;
+    width: 40%;
+    display: inline-block;
+    margin: 5px;
+    height: 150px;
+    text-align: center;
+    padding: 5px;
+}
+
 #questionnaire a {
     background-color: #00a6f9;
     color: white;
