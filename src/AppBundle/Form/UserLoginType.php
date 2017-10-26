@@ -7,9 +7,9 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
-use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
-class UserType extends AbstractType
+class UserLoginType extends AbstractType
 {
     /**
      * {@inheritdoc}
@@ -17,16 +17,12 @@ class UserType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('prenom')
             ->add('email', EmailType::class)
-            ->add('age')
-            ->add('sexe', ChoiceType::class, array(
-                'choices'  => array(
-                    'Homme' => '1',
-                    'Femme' => '2',
-                    )))
             ->add('password', PasswordType::class)
-            ->add('presentation');
+            ->add('submit', SubmitType::class, array(
+                'label' => 'Se Connecter',
+                'attr'  => array('class' => 'btn btn-default pull-right')))
+        ;
     }
     
     /**

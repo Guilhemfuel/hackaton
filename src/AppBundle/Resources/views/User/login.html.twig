@@ -4,23 +4,13 @@
     <div id="formcenter">
         {{ form_start(form) }}
 
-        {{ form_label(form.prenom) }}<br />
-        {{ form_widget(form.prenom) }}<br />
-
         {{ form_label(form.email) }}<br />
+        {{ form_errors(form.email) }}<br />
         {{ form_widget(form.email) }}<br />
 
-        {{ form_label(form.age) }}<br />
-        {{ form_widget(form.age) }}<br />
-
-        {{ form_label(form.sexe) }}<br />
-        {{ form_widget(form.sexe) }}<br />
-
         {{ form_label(form.password) }}<br />
+        {{ form_errors(form.password) }}<br />
         {{ form_widget(form.password) }}<br />
-
-        {{ form_label(form.presentation) }}<br />
-        {{ form_widget(form.presentation) }}<br />
 
         <br />
 

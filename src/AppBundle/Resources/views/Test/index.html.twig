@@ -1,29 +1,71 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    {% if test is defined %}
-        <form id="questionnaire" method="post">
-            {% for t in test %}
-                <p id="question-{{ t.id }}" class="{% if not loop.first %}hidden{% endif %}">
-                    {{ t.question }}
-                    <br/>
-                    <input type="radio" name="{{ t.id }}" value="1"> Oui<br/>
-                    <input type="radio" name="{{ t.id }}" value="2" checked> Non<br/>
-                    <input type="radio" name="{{ t.id }}" value="3"> Je ne sais pas<br/>
+    <div id="questionnaire">
 
-                    {% if not loop.last %}<a class="next">Suivant</a>{% endif %}
-                    {% if loop.last %}<input type="submit" value="Soumettre">{% endif %}
-                </p>
-            {% endfor %}
-        </form>
-    {% else %}
-        {% if resultat is defined %}
-        Resultat : {{ resultat }}<br />
+            <h3>Questionnaire</h3>
+
+            <h2>Avez-vous l'Alzheimer ?</h2>
+
+        <div id="form">
+        {% if test is defined %}
+            <form id="questionnaire" method="post">
+
+                <div id="step">
+                    {% for t in test %}
+                        <span class="question-{{ t.id }} {% if loop.first %}blue{% endif %}"></span>
+                    {% endfor %}
+                </div>
+
+                <div id="question">
+                    {% set i = 1 %}
+                    {% for t in test %}
+                        <div id="question-{{ t.id }}" class="{% if not loop.first %}hidden{% endif %}">
+                            <span>{{ t.question }}</span>
+                            <br/>
+                            <div id="input">
+                                <div>
+                                    <input id="{{ i }}" type="radio" name="{{ t.id }}" value="1">
+                                    <label for="{{ i }}">Oui</label><br/>
+                                </div>
+
+                                {% set i = i + 1 %}
+
+                                <div>
+                                    <input id="{{ i }}" type="radio" name="{{ t.id }}" value="2" checked>
+                                    <label for="{{ i }}">Non</label><br/>
+                                </div>
+
+                                {% set i = i + 1 %}
+
+                                <div>
+                                    <input id="{{ i }}" type="radio" name="{{ t.id }}" value="3">
+                                    <label for="{{ i }}">Je ne sais pas</label><br/>
+                                </div>
+
+                                {% set i = i + 1 %}
+                            </div>
+
+                            {% if not loop.last %}
+                                <div class="next"><a>Suivant</a></div>{% endif %}
+                            {% if loop.last %}
+                                <div class="next"><input type="submit" value="Soumettre"></div>{% endif %}
+                        </div>
+                    {% endfor %}
+                </div>
+            </form>
+        {% else %}
+            {% if resultat is defined %}
+                Resultat : {{ resultat }}<br/>
+            {% endif %}
+
+            <a href="{{ path('homepage') }}">S'inscrire</a>
         {% endif %}
-        Vous êtes nul, inscrivez-vous !
-        <a href="{{ path('homepage') }}">S'inscrire</a>
-    {% endif %}
+        </div>
+    </div>
+{% endblock %}
 
+{% block javascripts %}
     <script>
         $( document ).ready(function() {
             $(".next").click(function(){
@@ -32,9 +74,16 @@
 
                 var id = $(this).parent().attr("id");
                 id = parseInt(id.substring(9)) + 1;
+                var step = '.question-'+id;
                 id = '#question-'+id;
 
                 $(id).removeClass("hidden");
+                $(step).addClass("blue");
+            });
+
+            $("label").click(function(){
+                $("label").removeClass("yellow");
+                $(this).addClass("yellow");
             });
         });
     </script>

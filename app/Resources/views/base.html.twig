@@ -11,7 +11,35 @@
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
 </head>
 <body>
-{% block body %}{% endblock %}
+<div id="container">
+    <div id="body">
+        {% block body %}{% endblock %}
+        {% block prefooter %}
+
+        {% endblock %}
+    </div>
+
+    {% block footer %}
+        {% if app.request.get('_route') != 'homepage' %}
+            <div id="prefooter">
+                <div><a href="{{ path('homepage') }}"><img src="{{ asset('bundles/app/images/rencontres.png') }}"/></a>
+                </div>
+                <div><img src="{{ asset('bundles/app/images/rencontres.png') }}"/></div>
+                <div><a href="{{ path('docteur') }}"><img src="{{ asset('bundles/app/images/medecins.png') }}"/></a></div>
+                <div><a href="{{ path('questionnaire') }}"><img
+                                src="{{ asset('bundles/app/images/questionnaire.png') }}"/></a></div>
+                <div><a href="{{ path('register') }}"><img src="{{ asset('bundles/app/images/rencontres.png') }}"/></a>
+                </div>
+            </div>
+        {% endif %}
+        <footer>
+            <a>Qui sommes nous ?</a>
+            <a class="middle">CGU</a>
+            <a>Mentions légales</a>
+        </footer>
+    {% endblock %}
+</div>
+
 {% block javascripts %}{% endblock %}
 </body>
 </html>

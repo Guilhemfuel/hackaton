@@ -2,6 +2,8 @@
 
 namespace AppBundle\DataFixtures\ORM;
 
+use AppBundle\Entity\User;
+use AppBundle\Entity\Docteur;
 use AppBundle\Entity\Test;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
@@ -10,6 +12,7 @@ class Fixtures extends Fixture
 {
     public function load(ObjectManager $manager)
     {
+        //Questions
         $question1 = new Test();
         $question1->setQuestion("Avez-vous des difficultés à vous rappeler des événements de l’actualité récente ?");
         $manager->persist($question1);
@@ -50,27 +53,44 @@ class Fixtures extends Fixture
         $question10->setQuestion("Vous arrive-t-il de répéter plusieurs fois la même chose parce que vous oubliez l’avoir déjà dite ?");
         $manager->persist($question10);
 
-        /*
-        $question11 = new Test();
-        $question11->setQuestion("Avez-vous des difficultés à retrouver des noms propres de personnes ou de lieux (acteurs connus, relations, lieux de vacances...) ?");
-        $manager->persist($question11);
+        $manager->flush();
 
-        $question12 = new Test();
-        $question12->setQuestion("Avez-vous des difficultés à apprendre des choses nouvelles (jeux de cartes, nouvelle recette, mode d’emploi...) ?");
-        $manager->persist($question12);
+        //Docteurs
+        $docteur = new Docteur();
+        $docteur->setNom("Jean");
+        $docteur->setPrenom("Pascal");
+        $docteur->setPhoto("photo1.jpg");
+        $docteur->setAdresse("49 rue bidule 33000 Bordeaux");
+        $docteur->setNumero("0687485887");
+        $manager->persist($docteur);
 
-        $question13 = new Test();
-        $question13->setQuestion("Avez-vous besoin de tout noter ?");
-        $manager->persist($question13);
+        $docteur = new Docteur();
+        $docteur->setNom("Canivet");
+        $docteur->setPrenom("Guilhem");
+        $docteur->setPhoto("photo2.jpg");
+        $docteur->setAdresse("49 rue bidule 33000 Bordeaux");
+        $docteur->setNumero("0687485412");
+        $manager->persist($docteur);
 
-        $question14 = new Test();
-        $question14->setQuestion("Vous arrive-t-il de perdre des objets ?");
-        $manager->persist($question14);
+        $docteur = new Docteur();
+        $docteur->setNom("Doquin");
+        $docteur->setPrenom("Deborah");
+        $docteur->setPhoto("photo3.jpg");
+        $docteur->setAdresse("57 rue ptdr 33000 Bordeaux");
+        $docteur->setNumero("0687458712");
+        $manager->persist($docteur);
 
-        $question15 = new Test();
-        $question15->setQuestion("Vous arrive-t-il d’oublier immédiatement ce que les gens viennent de vous dire ?");
-        $manager->persist($question15);
-        */
+        $manager->flush();
+
+        //User
+        $user = new User();
+        $user->setPrenom("Guilhem");
+        $user->setEmail("guilhem.canivet@gmail.com");
+        $user->setAge("26");
+        $user->setSexe("1");
+        $user->setPassword("1234");
+        $user->setPresentation("Bonjour");
+        $manager->persist($user);
 
         $manager->flush();
     }

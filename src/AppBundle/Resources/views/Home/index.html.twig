@@ -1,42 +1,38 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <div id="container">
-        <div id="body">
-            <div id="logo">LOGO</div>
+    <div id="logo">LOGO</div>
 
-            <div id="links">
-                <div id="connexion">Se Connecter</div>
-                <div id="inscription">S'inscrire</div>
-            </div>
-
-
-            <div id="menu">
-                <div>
-                    <img src=""/>
-                    Rencontres
-                </div>
-                <div>
-                    <img src=""/>
-                    Médecins
-                </div>
-                <div>
-                    <img src=""/>
-                    Faire le questionnaire
-                </div>
-                <div>
-                    <img src=""/>
-                    Documentation
-                    En Savoir +
-                </div>
-            </div>
+    {% if app.session.get('logged') is defined and app.session.get('logged') == 1%}
+        <div id="hometitle">Bonjour {{ app.session.get('name') }} !</div>
+    {% else %}
+        <div id="links">
+            <div id="connexion"><a href="{{ path('login') }}">Se Connecter</a></div>
+            <div id="inscription"><a href="{{ path('register') }}">S'inscrire</a></div>
         </div>
+    {% endif %}
 
-        <footer>
-            <a>Truc</a>
-            <a>ergg</a>
-            <a>gergerh</a>
-        </footer>
+    <div id="menu">
+        <a href="">
+            <img src="{{ asset('bundles/app/images/rencontres.png') }}"/>
+            <br />
+            Rencontres
+        </a>
+        <a href="{{ path('docteur') }}">
+            <img src="{{ asset('bundles/app/images/medecins.png') }}"/>
+            <br />
+            Médecins
+        </a>
+        <a href="{{ path("questionnaire") }}">
+            <img src="{{ asset('bundles/app/images/questionnaire.png') }}"/>
+            <br />
+            Faire le questionnaire
+        </a>
+        <a href="">
+            <img src="{{ asset('bundles/app/images/doc.png') }}"/>
+            <br />
+            Documentation
+            En Savoir +
+        </a>
     </div>
-
 {% endblock %}

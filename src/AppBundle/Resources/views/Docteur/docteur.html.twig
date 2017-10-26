@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <h3>Les médecins</h3>
+
+    {% for e in entity %}
+        <div id="docteur">
+            <div>
+                <img src="{{ asset('bundles/app/images/' ~ e.photo) }}"/>
+            </div>
+            <div>
+                {{ e.prenom }} {{ e.nom }} <br />
+                {{ e.adresse }}<br />
+                {{ e.numero }}<br />
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}
