@@ -1,0 +1,13 @@
+#questionnaire a {
+    background-color: #00a6f9;
+    color: white;
+    cursor: pointer;
+}
+
+.visible {
+    display: block;
+}
+
+.hidden {
+    display: none;
+}

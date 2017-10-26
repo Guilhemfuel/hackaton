@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {% if test is defined %}
+        <form id="questionnaire" method="post">
+            {% for t in test %}
+                <p id="question-{{ t.id }}" class="{% if not loop.first %}hidden{% endif %}">
+                    {{ t.question }}
+                    <br/>
+                    <input type="radio" name="{{ t.id }}" value="1"> Oui<br/>
+                    <input type="radio" name="{{ t.id }}" value="2" checked> Non<br/>
+                    <input type="radio" name="{{ t.id }}" value="3"> Je ne sais pas<br/>
+
+                    {% if not loop.last %}<a class="next">Suivant</a>{% endif %}
+                    {% if loop.last %}<input type="submit" value="Soumettre">{% endif %}
+                </p>
+            {% endfor %}
+        </form>
+    {% else %}
+        {% if resultat is defined %}
+        Resultat : {{ resultat }}<br />
+        {% endif %}
+        Vous êtes nul, inscrivez-vous !
+        <a href="{{ path('homepage') }}">S'inscrire</a>
+    {% endif %}
+
+    <script>
+        $( document ).ready(function() {
+            $(".next").click(function(){
+
+                $(this).parent().addClass("hidden");
+
+                var id = $(this).parent().attr("id");
+                id = parseInt(id.substring(9)) + 1;
+                id = '#question-'+id;
+
+                $(id).removeClass("hidden");
+            });
+        });
+    </script>
+{% endblock %}
