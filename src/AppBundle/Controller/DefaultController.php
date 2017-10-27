@@ -156,4 +156,13 @@ class DefaultController extends Controller
             'entity' => $entity
         ));
     }
+
+    /**
+     * @Route("/users", name="users")
+     */
+    public function usersAction(Request $request)
+    {
+        return $this->render('AppBundle:Activity:users.html.twig', array(
+        ));
+    }
 }

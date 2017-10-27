@@ -19,7 +19,7 @@ class Fixtures extends Fixture
         $manager->persist($question1);
 
         $question2 = new Test();
-        $question2->setQuestion("Avez-vous des difficultés à suivre un film (ou une émission de TV ou un livre) parce que vous oubliez ce qui vient de se passer ?");
+        $question2->setQuestion("Avez-vous besoin de tout noter ?");
         $manager->persist($question2);
 
         $question3 = new Test();
@@ -27,7 +27,7 @@ class Fixtures extends Fixture
         $manager->persist($question3);
 
         $question4 = new Test();
-        $question4->setQuestion("Vous arrive-t-il d’oublier de faire des choses importantes que vous aviez prévues ou que vous deviez faire (payer des factures, aller à un rendez-vous ou à une invitation) ?");
+        $question4->setQuestion("Vous arrive-t-il de perdre des objets ?");
         $manager->persist($question4);
 
         $question5 = new Test();

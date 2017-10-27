@@ -11,5 +11,23 @@
                 <br />{{ e.name }}
             </div>
         {% endfor %}
+
+        <a href="{{ path('users') }}" class="validate">Valider</a>
     </div>
+{% endblock %}
+
+{% block javascripts %}
+    <script>
+        $( document ).ready(function() {
+            $(".activities").click(function(){
+
+                if ($(this).hasClass("red")) {
+                    $(this).removeClass("red");
+                }
+                else {
+                    $(this).addClass("red");
+                }
+            });
+        });
+    </script>
 {% endblock %}

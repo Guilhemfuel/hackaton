@@ -169,7 +169,7 @@ footer .middle
 }
 
 .blue {
-    background-color: #29A5BD!important;
+    background-color: #006699!important;
 }
 
 #questionnaire p {
@@ -290,7 +290,7 @@ h3 {
     min-height: 5vh;
 }
 
-input {
+input, textarea, button, select {
     border: 1px solid darkgray;
 }
 
@@ -303,7 +303,7 @@ input {
 
 #activity .activities {
     width: 26%;
-    height: 140px;
+    height: 130px;
     border: 1px solid #d9d9d9;
     border-radius: 8px;
     background-color: #f2f2f2;
@@ -316,4 +316,32 @@ input {
 #activity .activities img {
     max-width: 100%;
     max-height: 100%;
+}
+
+#formulaire {
+    text-align: center;
+}
+
+.red {
+    background-color: #e29e9e!important;
+    color: white!important;
+}
+
+#users {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+#users img {
+    width: 45%;
+}
+
+.validate {
+    border: 1px solid #006699;
+    padding: 5px;
+    color: #006699;
+    text-decoration: none;
+    border-radius: 10px;
 }

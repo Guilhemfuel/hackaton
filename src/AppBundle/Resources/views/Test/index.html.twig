@@ -57,9 +57,13 @@
         {% else %}
             {% if resultat is defined %}
                 <div>
-                    Resultat : {{ resultat }}<br/>
-                    Vous devriez peut être consulter un médecin<br /><br />
-                    <a href="{{ path('register') }}">S'inscrire</a>
+                    {% if resultat > 4 %}
+                        Vous devriez peut être consulter un médecin<br /><br />
+                        <a href="{{ path('docteur') }}">Liste des médecins aux alentours</a>
+                    {% else %}
+                        Vous avez l'air en bonne santé, continuez à stimuler votre cerveau ! :)
+                    {% endif %}
+
                 </div>
             {% endif %}
         {% endif %}
