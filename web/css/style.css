@@ -36,6 +36,10 @@ footer a {
     min-height: 15vh;
 }
 
+#logo img {
+    width: 80px;
+}
+
 #connexion {
     width: 40%;
 }
@@ -62,13 +66,19 @@ footer a {
 }
 
 #connexion {
-    background-color: #23B786;
+    background-color: #006699;
     border-radius: 5px;
 }
 
 #inscription {
-    background-color: #FED234;
+    background-color: white;
     border-radius: 5px;
+    color: #006699;
+    border: 1px solid #006699;
+}
+
+#inscription a {
+    color: #006699!important;
 }
 
 #menu {
@@ -83,7 +93,7 @@ footer a {
     border: 1px solid #CDCDCD;
     background-color: #F2F2F2;
     font-family: 'Lato', sans-serif;
-    color: #29A5BD;
+    color: #990000;
     width: 40%;
     display: inline-block;
     margin: 5px;
@@ -130,8 +140,8 @@ footer .middle
     justify-content: center;
     align-items: center;
     min-height: 5vh;
-    color: #23B786;
-    margin: 0;
+    color: #990000;
+    margin: 0 0 10px 0;
 }
 
 #questionnaire #form {
@@ -184,9 +194,10 @@ footer .middle
 }
 
 #questionnaire #input label {
-    background-color: #6E6E6E;
+    background-color: white;
     border-radius: 10px;
-    color: white;
+    color: #006699;
+    border: 1px solid #006699;
     width: 60%;
     display: inline-block;
     padding: 10px;
@@ -200,7 +211,8 @@ footer .middle
 }
 
 .yellow {
-    background-color: #ffd310!important;
+    background-color: #006699!important;
+    color: white!important;
 }
 
 #questionnaire .next {
@@ -211,14 +223,14 @@ footer .middle
 }
 
 #questionnaire .next a {
-    background-color: #00a6f9;
+    background-color: #006699;
     color: white;
     font-size: 1.2em;
     padding: 10px;
 }
 
 #questionnaire .next input {
-    background-color: #00a6f9;
+    background-color: #006699;
     color: white;
     font-size: 1.2em;
     padding: 10px;
@@ -251,8 +263,8 @@ footer .middle
 }
 
 #hometitle {
-    color: #23B786;
-    border-bottom: 1px solid #23B786;
+    color: #990000;
+    border-bottom: 1px solid #990000;
     margin: 10px;
 }
 
@@ -276,4 +288,32 @@ h3 {
     justify-content: center;
     align-items: center;
     min-height: 5vh;
+}
+
+input {
+    border: 1px solid darkgray;
+}
+
+#activity {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+#activity .activities {
+    width: 26%;
+    height: 140px;
+    border: 1px solid #d9d9d9;
+    border-radius: 8px;
+    background-color: #f2f2f2;
+    margin: 5px;
+    color: #990000;
+    font-size: 0.8em;
+    text-align: center;
+}
+
+#activity .activities img {
+    max-width: 100%;
+    max-height: 100%;
 }

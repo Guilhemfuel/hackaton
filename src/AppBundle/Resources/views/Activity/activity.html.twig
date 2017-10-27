@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div id="activity">
+
+        <h2>Choisissez votre activité</h2>
+
+        {% for e in entity %}
+            <div class="activities">
+                <img src="{{ asset('bundles/app/images/activity/'~e.picture) }}"/>
+                <br />{{ e.name }}
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

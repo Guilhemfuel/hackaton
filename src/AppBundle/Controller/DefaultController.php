@@ -143,4 +143,17 @@ class DefaultController extends Controller
             'entity' => $entity
         ));
     }
+
+    /**
+     * @Route("/activities", name="activities")
+     */
+    public function activitiesAction(Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $entity = $em->getRepository('AppBundle:Activity')->findAll();
+
+        return $this->render('AppBundle:Activity:activity.html.twig', array(
+            'entity' => $entity
+        ));
+    }
 }

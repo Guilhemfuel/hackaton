@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8" />
-    <title>{% block title %}Welcome!{% endblock %}</title>
+    <title>{% block title %}Albert{% endblock %}</title>
     {% block stylesheets %}{% endblock %}
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -22,13 +22,13 @@
     {% block footer %}
         {% if app.request.get('_route') != 'homepage' %}
             <div id="prefooter">
-                <div><a href="{{ path('homepage') }}"><img src="{{ asset('bundles/app/images/rencontres.png') }}"/></a>
+                <div><a href="{{ path('homepage') }}"><img src="{{ asset('bundles/app/images/m_home.png') }}"/></a>
                 </div>
-                <div><img src="{{ asset('bundles/app/images/rencontres.png') }}"/></div>
-                <div><a href="{{ path('docteur') }}"><img src="{{ asset('bundles/app/images/medecins.png') }}"/></a></div>
+                <div><a href="{{ path('activities') }}"><img src="{{ asset('bundles/app/images/m_rencontres.png') }}"/></a></div>
+                <div><a href="{{ path('docteur') }}"><img src="{{ asset('bundles/app/images/m_medecins.png') }}"/></a></div>
                 <div><a href="{{ path('questionnaire') }}"><img
-                                src="{{ asset('bundles/app/images/questionnaire.png') }}"/></a></div>
-                <div><a href="{{ path('register') }}"><img src="{{ asset('bundles/app/images/rencontres.png') }}"/></a>
+                                src="{{ asset('bundles/app/images/m_questionnaire.png') }}"/></a></div>
+                <div><a href="{{ path('register') }}"><img src="{{ asset('bundles/app/images/m_doc.png') }}"/></a>
                 </div>
             </div>
         {% endif %}

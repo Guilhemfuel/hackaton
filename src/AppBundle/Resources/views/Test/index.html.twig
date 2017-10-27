@@ -56,10 +56,12 @@
             </form>
         {% else %}
             {% if resultat is defined %}
-                Resultat : {{ resultat }}<br/>
+                <div>
+                    Resultat : {{ resultat }}<br/>
+                    Vous devriez peut être consulter un médecin<br /><br />
+                    <a href="{{ path('register') }}">S'inscrire</a>
+                </div>
             {% endif %}
-
-            <a href="{{ path('homepage') }}">S'inscrire</a>
         {% endif %}
         </div>
     </div>

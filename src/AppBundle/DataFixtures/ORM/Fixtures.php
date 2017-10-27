@@ -2,6 +2,7 @@
 
 namespace AppBundle\DataFixtures\ORM;
 
+use AppBundle\Entity\Activity;
 use AppBundle\Entity\User;
 use AppBundle\Entity\Docteur;
 use AppBundle\Entity\Test;
@@ -91,6 +92,54 @@ class Fixtures extends Fixture
         $user->setPassword("1234");
         $user->setPresentation("Bonjour");
         $manager->persist($user);
+
+        $manager->flush();
+
+        //Activity
+        $activity = new Activity();
+        $activity->setName("Jeux de cartes");
+        $activity->setPicture("cartes.png");
+        $manager->persist($activity);
+
+        $activity = new Activity();
+        $activity->setName("Cuisine");
+        $activity->setPicture("cuisine.png");
+        $manager->persist($activity);
+
+        $activity = new Activity();
+        $activity->setName("Jardinage");
+        $activity->setPicture("jardinage.png");
+        $manager->persist($activity);
+
+        $activity = new Activity();
+        $activity->setName("Jeux de société");
+        $activity->setPicture("echecs.png");
+        $manager->persist($activity);
+
+        $activity = new Activity();
+        $activity->setName("Club lecture");
+        $activity->setPicture("livre.png");
+        $manager->persist($activity);
+
+        $activity = new Activity();
+        $activity->setName("Dessin");
+        $activity->setPicture("dessin.png");
+        $manager->persist($activity);
+
+        $activity = new Activity();
+        $activity->setName("Jouer de la musique");
+        $activity->setPicture("musique.png");
+        $manager->persist($activity);
+
+        $activity = new Activity();
+        $activity->setName("Promenade");
+        $activity->setPicture("promenade.png");
+        $manager->persist($activity);
+
+        $activity = new Activity();
+        $activity->setName("Puzzle");
+        $activity->setPicture("puzzle.png");
+        $manager->persist($activity);
 
         $manager->flush();
     }
